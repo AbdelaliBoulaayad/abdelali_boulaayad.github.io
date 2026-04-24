@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abdelali Boulaayad — Portfolio Digital Marketing and Communication</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  :root {
+    --black: #0f0f0f;
+    --white: #fafaf8;
+    --accent: #205e61;
+    --accent2: #e0f5f5;
+    --gray: #6b6b6b;
+    --lightgray: #f0efe9;
+    --border: #e2e0d8;
+    --green: #1a7a4a;
+    --green-bg: #eaf4ee;
+    --teal: #006d6d;
+    --teal-bg: #e0f4f4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); line-height: 1.65; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: linear-gradient(135deg, #0f1c1d 0%, #1a3536 60%, #0f0f0f 100%); border-bottom: 1px solid rgba(32,94,97,0.3); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 60px; box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
+  nav .logo { font-family: 'DM Serif Display', serif; font-size: 20px; color: white; letter-spacing: 0.02em; }
+  nav ul { list-style: none; display: flex; gap: 22px; }
+  nav ul a { font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; font-weight: 500; transition: color .2s; display: flex; align-items: center; gap: 5px; }
+  nav ul a:hover { color: #7ecacb; }
+
+  .hero { margin-top: 60px; padding: 80px 40px 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin-left: auto; margin-right: auto; align-items: center; }
+  .hero-text h1 { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1.1; margin-bottom: 20px; }
+  .hero-text h1 span { color: var(--accent); }
+  .hero-text p { font-size: 16px; color: var(--gray); max-width: 420px; margin-bottom: 28px; line-height: 1.7; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .tag { background: var(--lightgray); color: var(--black); font-size: 12px; padding: 5px 12px; border-radius: 20px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
+  .hero-contact { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all .2s; }
+  .btn-primary { background: var(--black); color: var(--white); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--black); }
+  .btn-outline:hover { border-color: var(--black); }
+  .hero-stats { background: var(--lightgray); border-radius: 16px; padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stat-item { text-align: center; }
+  .stat-item .val { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--accent); }
+  .stat-item .lbl { font-size: 12px; color: var(--gray); margin-top: 4px; line-height: 1.4; }
+
+  section { max-width: 1100px; margin: 0 auto; padding: 70px 40px; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 14px; }
+  .section-sub { font-size: 15px; color: var(--gray); margin-bottom: 40px; max-width: 560px; }
+
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .project-card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: box-shadow .2s, transform .2s; background: white; }
+  .project-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .project-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.4fr; }
+  .project-img { background: var(--lightgray); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: var(--accent); }
+  .project-card.featured .project-visual { height: auto; min-height: 260px; }
+  .project-body { padding: 24px; }
+  .project-category { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .project-title { font-family: 'DM Serif Display', serif; font-size: 21px; margin-bottom: 10px; }
+  .project-desc { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+  .project-results { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .pill { font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px; }
+  .pill-green { background: var(--green-bg); color: var(--green); }
+  .pill-blue { background: var(--accent2); color: var(--accent); }
+  .pill-teal { background: var(--teal-bg); color: var(--teal); }
+  .project-tools { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tool { background: var(--lightgray); font-size: 11px; padding: 3px 10px; border-radius: 4px; color: var(--gray); display: inline-flex; align-items: center; gap: 4px; }
+
+  .ba-wrap { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin: 24px 0; }
+  .ba-box { background: var(--lightgray); border-radius: 12px; padding: 20px; text-align: center; }
+  .ba-box.after { background: var(--green-bg); }
+  .ba-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+  .ba-box.after .ba-lbl { color: var(--green); }
+  .ba-val { font-family: 'DM Serif Display', serif; font-size: 30px; margin-bottom: 4px; }
+  .ba-sub { font-size: 12px; color: var(--gray); }
+  .ba-arrow { font-size: 26px; color: var(--accent); }
+
+  .carousel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .carousel-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .ci-header { padding: 12px 16px; color: white; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+  .ci-slides { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+  .ci-slide { background: white; padding: 12px; font-size: 11px; color: var(--gray); line-height: 1.4; min-height: 72px; display: flex; align-items: center; }
+  .ci-footer { padding: 9px 16px; font-size: 11px; color: var(--gray); display: flex; align-items: center; gap: 6px; }
+
+  .newsletter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .nl-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .nl-head { padding: 20px 22px; background: var(--black); color: white; }
+  .nl-head .date { font-size: 11px; opacity: .6; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+  .nl-head h4 { font-family: 'DM Serif Display', serif; font-size: 17px; }
+  .nl-body { padding: 18px 22px; }
+  .nl-body p { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
+  .nl-tag { display: inline-block; background: var(--lightgray); font-size: 11px; padding: 3px 9px; border-radius: 4px; color: var(--gray); margin-right: 5px; margin-bottom: 5px; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skill-block { background: var(--lightgray); border-radius: 12px; padding: 22px; }
+  .skill-block h4 { font-size: 14px; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .skill-block h4 i { color: var(--accent); }
+  .skill-list { display: flex; flex-direction: column; gap: 10px; }
+  .skill-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .skill-bar-wrap { width: 90px; height: 4px; background: var(--border); border-radius: 2px; }
+  .skill-bar { height: 4px; border-radius: 2px; background: var(--accent); }
+  .skill-bar.g { background: var(--green); }
+  .skill-bar.t { background: var(--teal); }
+
+  .tools-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .tool-logo { background: var(--lightgray); border: 1px solid var(--border); border-radius: 8px; padding: 7px 13px; font-size: 12px; font-weight: 500; color: var(--gray); display: flex; align-items: center; gap: 6px; }
+  .tool-logo i { color: var(--accent); }
+
+  .timeline { display: flex; flex-direction: column; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 14px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+  .tl-item { display: flex; gap: 28px; padding-left: 44px; position: relative; padding-bottom: 36px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot { position: absolute; left: 6px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--accent); }
+  .tl-dot.g { background: var(--gray); box-shadow: 0 0 0 2px var(--gray); }
+  .tl-date { font-size: 11px; color: var(--gray); font-weight: 500; min-width: 110px; padding-top: 4px; }
+  .tl-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .tl-content .co { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 7px; display: flex; align-items: center; gap: 5px; }
+  .tl-content p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  .salon-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .salon-doc { background: var(--lightgray); border-radius: 10px; padding: 13px 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .salon-doc i { font-size: 18px; color: var(--accent); flex-shrink: 0; }
+  .salon-doc h6 { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+  .salon-doc p { font-size: 11px; color: var(--gray); }
+
+  .ads-table { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: white; }
+  .ads-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 10px 16px; font-size: 13px; border-bottom: 1px solid var(--border); align-items: center; }
+  .ads-row.head { font-size: 11px; font-weight: 600; color: var(--gray); background: #f8f9fa; }
+  .ads-row:last-child { border-bottom: none; }
+  .dot-green { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; margin-right: 6px; }
+
+  footer { background: var(--black); color: var(--white); padding: 50px 40px; text-align: center; }
+  footer h3 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 12px; }
+  footer p { font-size: 14px; opacity: .6; margin-bottom: 24px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { color: white; font-size: 13px; text-decoration: none; opacity: .7; transition: opacity .2s; display: flex; align-items: center; gap: 7px; }
+  .footer-links a:hover { opacity: 1; }
+
+
+  .project-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .project-img { overflow: hidden; }
+  .card-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .card-action { display:inline-flex; align-items:center; gap:8px; padding:9px 13px; border-radius:8px; font-size:12px; font-weight:700; text-decoration:none; transition: all .2s ease; border:1px solid var(--border); line-height:1; }
+  .card-action.primary { background: var(--black); color: #fff; border-color: var(--black); }
+  .card-action.primary:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+  .card-action.secondary { background: #fff; color: var(--black); }
+  .card-action.secondary:hover { border-color: var(--black); transform: translateY(-1px); }
+  .ci-actions { padding: 0 16px 16px; }
+  .nl-actions { padding: 0 22px 20px; display:flex; gap:10px; flex-wrap:wrap; }
+  .salon-doc { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+  .salon-doc:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+  .salon-doc .pdf-pill { margin-left:auto; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 999px; background: var(--accent2); color: var(--accent); }
+  .reco-link { text-decoration:none; color:inherit; display:block; }
+  .reco-link:hover { opacity: .95; transform: translateY(-1px); }
+
+  @media(max-width:768px){
+    nav { padding: 0 16px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 40px 20px; }
+    .hero-text h1 { font-size: 36px; }
+    .projects-grid,.carousel-grid,.newsletter-grid,.skills-grid,.salon-layout { grid-template-columns: 1fr; }
+    .project-card.featured { grid-template-columns: 1fr; }
+    .ba-wrap { grid-template-columns: 1fr; }
+    .ba-arrow { display: none; }
+    section { padding: 50px 20px; }
+  }
+  /* === NOUVEAUX STYLES POUR LES BOUTONS ALIGNÉS === */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+            width: 100%;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 30px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 220px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Bouton principal - Distinctif */
+        .primary-cta {
+            background: linear-gradient(135deg, #205e61, #1a7a4a);
+            color: #fff;
+            box-shadow: 0 6px 15px rgba(32, 94, 97, 0.35);
+            z-index: 1;
+        }
+        
+        .primary-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(32, 94, 97, 0.45);
+        }
+        
+        .primary-cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a7a4a, #205e61);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .primary-cta:hover::after {
+            opacity: 1;
+        }
+        
+        /* Boutons secondaires */
+        .secondary-btn {
+            background: #e0f5f5;
+            color: #205e61;
+            border: 2px solid #205e61;
+        }
+        
+        .secondary-btn:hover {
+            background: #205e61;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(32, 94, 97, 0.3);
+        }
+        
+        .btn-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+  /* =============================================
+     ANIMATIONS & DYNAMIC EFFECTS — V4
+     ============================================= */
+  
+  /* Custom cursor */
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.22,.68,0,1.2);
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.22,.68,0,1.2);
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* Stagger delays */
+  .reveal:nth-child(1) { transition-delay: 0s; }
+  .reveal:nth-child(2) { transition-delay: 0.1s; }
+  .reveal:nth-child(3) { transition-delay: 0.2s; }
+  .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+  /* Hero animation */
+  .hero-text h1 { animation: slideUp 0.85s cubic-bezier(.22,.68,0,1.2) both; }
+  .hero-text p { animation: slideUp 0.85s 0.15s cubic-bezier(.22,.68,0,1.2) both; }
+  .hero-tags { animation: slideUp 0.85s 0.25s cubic-bezier(.22,.68,0,1.2) both; }
+  .hero-contact { animation: slideUp 0.85s 0.35s cubic-bezier(.22,.68,0,1.2) both; }
+  .hero-stats { animation: slideUp 0.85s 0.2s cubic-bezier(.22,.68,0,1.2) both; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Nav animation */
+  nav { animation: fadeDown 0.6s ease both; }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Stat counter animation */
+  .stat-item .val { 
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .stat-item:hover .val { transform: scale(1.08); }
+
+  /* Project card hover — enhanced */
+  .project-card {
+    transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(.22,.68,0,1.2);
+  }
+  .project-card:hover { 
+    box-shadow: 0 16px 48px rgba(32, 94, 97, 0.12);
+    transform: translateY(-5px);
+  }
+  .project-card:hover .project-img img {
+    transform: scale(1.04);
+    transition: transform 0.5s ease;
+  }
+  .project-img img { transition: transform 0.5s ease; }
+
+  /* Skill bars animation */
+  .skill-bar { 
+    width: 0% !important;
+    transition: width 1.2s cubic-bezier(.22,.68,0,1.2);
+  }
+  .skill-bar.animated { width: var(--target-width) !important; }
+
+  /* Section label animation */
+  .section-label {
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .section-label.visible { opacity: 1; transform: translateX(0); }
+
+  /* Timeline dot pulse */
+  .tl-dot {
+    animation: none;
+    transition: transform 0.2s ease;
+  }
+  .tl-item:hover .tl-dot { transform: scale(1.3); }
+
+  /* Pill hover */
+  .pill {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+  }
+  .pill:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+  /* Tool logo hover */
+  .tool-logo {
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .tool-logo:hover { 
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32,94,97,0.25);
+  }
+  .tool-logo:hover i { color: white; }
+
+  /* Gradient text for hero */
+  .hero-text h1 span {
+    background: linear-gradient(135deg, var(--accent), #1a7a4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Nav scroll effect */
+  nav.scrolled {
+    box-shadow: 0 4px 28px rgba(0,0,0,0.28);
+    backdrop-filter: blur(14px);
+    background: rgba(15,28,29,0.97);
+  }
+
+  /* Floating particles bg for hero */
+  .hero-particles {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .hero { position: relative; }
+  .hero > * { position: relative; z-index: 1; }
+
+  /* Button ripple */
+  .btn, .card-action, .cta-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::after, .card-action::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  .btn:active::after, .card-action:active::after {
+    width: 200px; height: 200px;
+    opacity: 0;
+  }
+
+  /* Smooth image hover on featured card */
+  .project-card.featured:hover { transform: translateY(-4px); }
+
+  /* Section divider animation */
+  section + section::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin-bottom: 0;
+  }
+  section + section { border-top: none; }
+
+  /* Footer wave */
+  footer {
+    background: linear-gradient(135deg, #0f0f0f 60%, #0d2e2f 100%);
+  }
+
+  /* Magnetic buttons */
+  .btn-primary, .card-action.primary {
+    transition: all 0.25s cubic-bezier(.22,.68,0,1.2);
+  }
+
+
+  /* ── Project Visual (replaces photos) ────────── */
+  .project-visual {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card.featured .project-visual { height: auto; min-height: 260px; }
+  .project-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pv-icon {
+    font-size: 36px;
+    color: rgba(255,255,255,0.9);
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    transition: transform 0.35s cubic-bezier(.22,.68,0,1.5);
+  }
+  .project-card:hover .pv-icon { transform: scale(1.15) translateY(-3px); }
+  .pv-kpis {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .pv-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .pv-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: white;
+    line-height: 1;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  .pv-lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+  .pv-sep {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.2);
+  }
+  .pv-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 0 20px;
+    line-height: 1.5;
+  }
+
+  /* ── Typewriter effect for hero h1 ────────── */
+  .typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: var(--accent);
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* ── Magnetic hover on stat items ────────── */
+  .stat-item {
+    transition: transform 0.25s cubic-bezier(.22,.68,0,1.5);
+    cursor: default;
+  }
+
+  /* ── Tilt card on hover ────────── */
+  .project-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* ── Section slide-in from side ────────── */
+  .slide-left {
+    opacity: 0; transform: translateX(-50px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.22,.68,0,1.2);
+  }
+  .slide-right {
+    opacity: 0; transform: translateX(50px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.22,.68,0,1.2);
+  }
+  .slide-left.visible, .slide-right.visible {
+    opacity: 1; transform: translateX(0);
+  }
+
+  /* ── Timeline animated line ────────── */
+  .timeline::before {
+    transform-origin: top;
+    animation: growLine 1.5s ease forwards;
+    animation-play-state: paused;
+  }
+  .timeline.animated::before { animation-play-state: running; }
+  @keyframes growLine {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  
+  /* ── Tool logo shimmer ────────── */
+  .tool-logo {
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-logo::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -75%;
+    width: 50%; height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.4s ease;
+    opacity: 0;
+  }
+  .tool-logo:hover::after { left: 150%; opacity: 1; }
+
+  /* ── Skill block: colored top border reveal ────────── */
+  .skill-block {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .skill-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(.22,.68,0,1.2);
+  }
+  .skill-block.visible::before { transform: translateX(0); }
+  .skill-block:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(32,94,97,0.12); }
+
+  /* ── Section label line ────────── */
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.35;
+  }
+
+  /* ── NL card hover ────────── */
+  .nl-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .nl-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(32,94,97,0.1); }
+
+  /* ── Remove old project-img img rules ────────── */
+  .project-card:hover .project-img img, .project-img img { display: none; }
+
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">AB.</div>
+<ul>
+<li><a href="#projets"><i class="fa-solid fa-folder-open fa-xs"></i> Projets</a></li>
+<li><a href="#preuves"><i class="fa-solid fa-chart-line fa-xs"></i> Preuves</a></li>
+<li><a href="#creations"><i class="fa-solid fa-palette fa-xs"></i> Créations</a></li>
+<li><a href="#competences"><i class="fa-solid fa-wrench fa-xs"></i> Compétences</a></li>
+<li><a href="#parcours"><i class="fa-solid fa-briefcase fa-xs"></i> Parcours</a></li>
+<li><a href="V5_CV_ABDELALI_BOULAAYAD_Marketing_Digital.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf fa-xs"></i> CV</a></li>
+<li><a href="#contact"><i class="fa-solid fa-envelope fa-xs"></i> Contact</a></li>
+</ul>
+</nav>
+<div style="max-width:1100px;margin:0 auto;">
+<div class="hero">
+<div class="hero-text">
+<h1>Abdelali<br/><span>Boulaayad</span></h1>
+<p>Responsable Marketing Digital &amp; Communication. Je transforme les données en leviers de croissance, SEO international, SEA, emailing, création de contenus et gestion de projets webmarketing en environnement B2B industriel.</p>
+<div class="hero-tags">
+<span class="tag"><i class="fa-brands fa-google fa-xs"></i> SEO / SEA</span>
+<span class="tag"><i class="fa-solid fa-chart-bar fa-xs"></i> Google Ads</span>
+<span class="tag"><i class="fa-solid fa-magnifying-glass-chart fa-xs"></i> Analytics</span>
+<span class="tag"><i class="fa-solid fa-envelope-open-text fa-xs"></i> Emailing</span>
+<span class="tag"><i class="fa-brands fa-wordpress fa-xs"></i> WordPress</span>
+<span class="tag"><i class="fa-brands fa-shopify fa-xs"></i> Shopify</span>
+<span class="tag"><i class="fa-solid fa-globe fa-xs"></i> International</span>
+<span class="tag"><i class="fa-solid fa-code fa-xs"></i> HTML/CSS</span>
+</div>
+<div class="hero-contact">
+<a class="btn btn-primary" href="mailto:abdelaliboulaayad@gmail.com"><i class="fa-solid fa-paper-plane"></i> Me contacter</a>
+<a class="btn btn-outline" href="tel:+33784777980"><i class="fa-solid fa-phone"></i> +33 7 84 77 79 80</a>
+</div>
+</div>
+<div class="hero-stats">
+<div class="stat-item">
+<div class="val">+41%</div>
+<div class="lbl"><i class="fa-solid fa-arrow-trend-up" style="color:var(--green)"></i><br/>Trafic organique UWAVE</div>
+</div>
+<div class="stat-item">
+<div class="val">-34%</div>
+<div class="lbl"><i class="fa-solid fa-arrow-trend-down" style="color:var(--accent)"></i><br/>Coût par clic Google Ads</div>
+</div>
+<div class="stat-item">
+<div class="val">98%</div>
+<div class="lbl"><i class="fa-solid fa-shield-halved" style="color:var(--teal)"></i><br/>Health Score SEO (vs 77%)</div>
+</div>
+<div class="stat-item">
+<div class="val">3</div>
+<div class="lbl"><i class="fa-solid fa-flag" style="color:#e67e22"></i><br/>Marchés déployés DE/ES/IT</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PROJETS -->
+<section id="projets">
+<div class="section-label"><i class="fa-solid fa-folder-open"></i> Réalisations</div>
+<h2 class="section-title">Projets clés</h2>
+<p class="section-sub">18 mois de stage et d'alternance chez UWAVE (fabricant B2B de systèmes LED UV, marchés international).</p>
+<div class="projects-grid">
+<div class="project-card featured">
+<div class="project-visual" style="background:linear-gradient(135deg, #0d2e2f 0%, #134545 55%, #1a7a4a 100%);"><div class="pv-icon"><i class="fa-solid fa-globe"></i></div><div class="pv-kpis"><div class="pv-kpi"><span class="pv-val">+41%</span><span class="pv-lbl">trafic organique</span></div><div class="pv-sep"></div><div class="pv-kpi"><span class="pv-val">×6 DE</span><span class="pv-lbl">clics organiques</span></div></div><div class="pv-tag">SEO International · Hreflang · GA4 · Semrush</div></div>
+<div class="project-body">
+<div class="project-category"><i class="fa-solid fa-language"></i> SEO International</div>
+<h3 class="project-title">Déploiement multilingue DE / ES / IT</h3>
+<p class="project-desc">Pilotage complet du déploiement du site UWAVE sur 3 nouveaux marchés. Implémentation des balises Hreflang, adaptation sémantique locale, création des contenus traduits et optimisés. Analyse comparative avant/après via Google Search Console.</p>
+<div class="project-results">
+<span class="pill pill-green"><i class="fa-solid fa-arrow-up"></i> +41% trafic organique</span>
+<span class="pill pill-green">CTR : 1,7% → 2,3%</span>
+<span class="pill pill-blue"><i class="fa-solid fa-flag"></i> Allemagne ×6</span>
+<span class="pill pill-blue">Italie ×4,4</span>
+<span class="pill pill-blue">Espagne ×2,4</span>
+</div>
+<div class="project-tools">
+<span class="tool"><i class="fa-brands fa-google fa-xs"></i> Search Console</span>
+<span class="tool">Semrush</span>
+<span class="tool">Hreflang</span>
+<span class="tool"><i class="fa-brands fa-wordpress fa-xs"></i> WordPress</span>
+<span class="tool">GA4</span>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual" style="background:linear-gradient(135deg, #0f1c1d 0%, #205e61 100%);"><div class="pv-icon"><i class="fa-solid fa-chart-bar"></i></div><div class="pv-kpis"><div class="pv-kpi"><span class="pv-val">-34%</span><span class="pv-lbl">CPC moyen</span></div><div class="pv-sep"></div><div class="pv-kpi"><span class="pv-val">+32%</span><span class="pv-lbl">CTR</span></div></div><div class="pv-tag">Google Ads · GTM · Looker Studio</div></div>
+<div class="project-body">
+<div class="project-category"><i class="fa-brands fa-google"></i> Google Ads · SEA</div>
+<h3 class="project-title">Optimisation campagnes Google Ads</h3>
+<p class="project-desc">Audit complet et restructuration des campagnes Search FR et EN. Nettoyage sémantique, exclusion requêtes non pertinentes, groupes ultra-spécifiques (1 mot-clé = 1 annonce), amélioration Quality Scores.</p>
+<div class="project-results">
+<span class="pill pill-green"><i class="fa-solid fa-arrow-down"></i> -34% CPC</span>
+<span class="pill pill-green"><i class="fa-solid fa-arrow-up"></i> +32% CTR</span>
+<span class="pill pill-blue">EN : 0,32€ → 0,21€</span>
+<span class="pill pill-blue">FR : 0,18€ → 0,14€</span>
+</div>
+<div class="project-tools">
+<span class="tool"><i class="fa-brands fa-google fa-xs"></i> Google Ads</span>
+<span class="tool">Keyword Planner</span>
+<span class="tool">GTM</span>
+<span class="tool">Looker Studio</span>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual" style="background:linear-gradient(135deg, #0d2424 0%, #006d6d 100%);"><div class="pv-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div class="pv-kpis"><div class="pv-kpi"><span class="pv-val">77→98%</span><span class="pv-lbl">Health Score</span></div><div class="pv-sep"></div><div class="pv-kpi"><span class="pv-val">55→0</span><span class="pv-lbl">erreurs critiques</span></div></div><div class="pv-tag">Screaming Frog · Semrush · YOAST · Ahrefs</div></div>
+<div class="project-body">
+<div class="project-category"><i class="fa-solid fa-magnifying-glass"></i> Audit SEO Technique</div>
+<h3 class="project-title">Refonte &amp; optimisation SEO technique</h3>
+<p class="project-desc">Audit complet via Screaming Frog et Semrush. Correction des erreurs d'exploration, réoptimisation des métadonnées de +100 pages produits, restructuration de l'arborescence, optimisation Hreflang et canonical.</p>
+<div class="project-results">
+<span class="pill pill-green"><i class="fa-solid fa-shield"></i> Health Score 77% → 98%</span>
+<span class="pill pill-blue">Erreurs : 55 → 0</span>
+<span class="pill pill-teal">Intl SEO : 84% → 98%</span>
+</div>
+<div class="project-tools">
+<span class="tool">Screaming Frog</span>
+<span class="tool">Semrush</span>
+<span class="tool">YOAST SEO</span>
+<span class="tool">Ahrefs</span>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual" style="background:linear-gradient(135deg, #111428 0%, #3c4c9e 100%);"><div class="pv-icon"><i class="fa-solid fa-laptop-code"></i></div><div class="pv-kpis"><div class="pv-kpi"><span class="pv-val">100+</span><span class="pv-lbl">pages équipées</span></div><div class="pv-sep"></div><div class="pv-kpi"><span class="pv-val">RGPD</span><span class="pv-lbl">conforme</span></div></div><div class="pv-tag">HTML/CSS · WordPress · FormSubmit · GTM</div></div>
+<div class="project-body">
+<div class="project-category"><i class="fa-solid fa-laptop-code"></i> Développement &amp; UX</div>
+<h3 class="project-title">Formulaire de devis dynamique HTML/CSS</h3>
+<p class="project-desc">Intégration d'un formulaire de devis dynamique sur +100 pages produits UWAVE. Pré-remplissage du nom produit, champs techniques (longueur d'onde, intensité), envoi des leads vers la boîte commerciale via FormSubmit. Conformité RGPD via gtag.js.</p>
+<div class="project-results">
+<span class="pill pill-teal"><i class="fa-solid fa-file-code"></i> HTML/CSS pur</span>
+<span class="pill pill-blue">Leads → CRM</span>
+<span class="pill pill-green"><i class="fa-solid fa-shield-halved"></i> RGPD</span>
+</div>
+<div class="project-tools">
+<span class="tool"><i class="fa-solid fa-code fa-xs"></i> HTML/CSS</span>
+<span class="tool">WordPress</span>
+<span class="tool">FormSubmit</span>
+<span class="tool">GTM</span>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual" style="background:linear-gradient(135deg, #0a1e1e 0%, #205e61 70%, #1a7a4a 100%);"><div class="pv-icon"><i class="fa-solid fa-at"></i></div><div class="pv-kpis"><div class="pv-kpi"><span class="pv-val">19</span><span class="pv-lbl">newsletters</span></div><div class="pv-sep"></div><div class="pv-kpi"><span class="pv-val">EN + FR</span><span class="pv-lbl">2 langues</span></div></div><div class="pv-tag">Mailerlite · HTML email · Canva · B2B</div></div>
+<div class="project-body">
+<div class="project-category"><i class="fa-solid fa-at"></i> Emailing · CRM</div>
+<h3 class="project-title">Newsletters B2B &amp; automation Mailerlite</h3>
+<p class="project-desc">Conception et automatisation de 19 newsletters B2B (9 EN + 10 FR). Segmentation de la base de contacts, création des templates HTML, rédaction technique en français et anglais, suivi des KPIs.</p>
+<div class="project-results">
+<span class="pill pill-blue">9 newsletters EN</span>
+<span class="pill pill-blue">10 newsletters FR</span>
+<span class="pill pill-teal">Automation</span>
+</div>
+<div class="project-tools">
+<span class="tool">Mailerlite</span>
+<span class="tool"><i class="fa-solid fa-code fa-xs"></i> HTML/CSS</span>
+<span class="tool">Canva</span>
+<span class="tool">Copywriting B2B</span>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-visual" style="background:linear-gradient(135deg, #111a08 0%, #3a5010 60%, #96bf48 100%);"><div class="pv-icon"><i class="fa-solid fa-store"></i></div><div class="pv-kpis"><div class="pv-kpi"><span class="pv-val">UK</span><span class="pv-lbl">marché britannique</span></div><div class="pv-sep"></div><div class="pv-kpi"><span class="pv-val">A→Z</span><span class="pv-lbl">full-stack</span></div></div><div class="pv-tag">Shopify · Google Shopping · Meta Ads</div></div>
+<div class="project-body">
+<div class="project-category"><i class="fa-solid fa-store"></i> E-commerce · Entrepreneuriat</div>
+<h3 class="project-title">VEIKKER — Boutique Shopify UK</h3>
+<p class="project-desc">Création et gestion complète d'une boutique e-commerce sur le marché britannique. Sourcing fournisseurs, Shopify, Google Shopping, Meta Ads, copywriting produit en anglais, logistique et SAV.</p>
+<div class="project-results">
+<span class="pill pill-blue"><i class="fa-brands fa-shopify fa-xs"></i> Shopify fullstack</span>
+<span class="pill pill-blue">Marché UK</span>
+<span class="pill pill-teal">Google Shopping + Meta Ads</span>
+</div>
+<div class="project-tools">
+<span class="tool"><i class="fa-brands fa-shopify fa-xs"></i> Shopify</span>
+<span class="tool">Google Shopping</span>
+<span class="tool">Meta Ads</span>
+<span class="tool">Copywriting EN</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PREUVES -->
+<section id="preuves">
+<div class="section-label"><i class="fa-solid fa-circle-check"></i> Preuves &amp; résultats</div>
+<h2 class="section-title">Résultats mesurables</h2>
+<p class="section-sub">Données réelles issues des outils utilisés chez UWAVE — Semrush, Google Search Console, Google Ads.</p>
+<div style="margin-bottom:48px">
+<div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-solid fa-shield-halved" style="color:var(--green)"></i> Audit SEO Semrush — Before / After</div>
+<div class="ba-wrap">
+<div class="ba-box">
+<div class="ba-lbl"><i class="fa-solid fa-circle-xmark" style="color:#c0392b"></i> Avant — Avril 2024</div>
+<div class="ba-val" style="color:#c0392b">77%</div>
+<div class="ba-sub">Health Score</div>
+<div style="margin-top:10px;font-size:12px"><span style="color:#c0392b"><i class="fa-solid fa-triangle-exclamation"></i> 55 erreurs critiques</span><br/><span style="color:var(--gray)">Intl SEO : 84% · Crawlability : 97%</span></div>
+</div>
+<div class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+<div class="ba-box after">
+<div class="ba-lbl"><i class="fa-solid fa-circle-check"></i> Après — Juillet 2024</div>
+<div class="ba-val" style="color:var(--green)">98%</div>
+<div class="ba-sub">Health Score</div>
+<div style="margin-top:10px;font-size:12px"><span style="color:var(--green)"><i class="fa-solid fa-check-double"></i> 0 erreur critique</span><br/><span style="color:var(--green)">Intl SEO : 98% · Crawlability : 100%</span></div>
+</div>
+</div>
+</div>
+<div style="margin-bottom:48px">
+<div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-brands fa-google" style="color:var(--accent)"></i> Google Search Console — Août 2025 (28 jours)</div>
+<div style="background:var(--lightgray);border-radius:12px;padding:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
+<div><div style="font-family:'DM Serif Display',serif;font-size:28px;color:var(--accent)">187</div><div style="font-size:12px;color:var(--gray)"><i class="fa-solid fa-computer-mouse fa-xs"></i> Clics totaux</div></div>
+<div><div style="font-family:'DM Serif Display',serif;font-size:28px;color:var(--accent)">15,1k</div><div style="font-size:12px;color:var(--gray)"><i class="fa-solid fa-eye fa-xs"></i> Impressions</div></div>
+<div><div style="font-family:'DM Serif Display',serif;font-size:28px;color:var(--accent)">1,2%</div><div style="font-size:12px;color:var(--gray)"><i class="fa-solid fa-percent fa-xs"></i> CTR moyen</div></div>
+<div><div style="font-family:'DM Serif Display',serif;font-size:28px;color:var(--accent)">31</div><div style="font-size:12px;color:var(--gray)"><i class="fa-solid fa-ranking-star fa-xs"></i> Position moyenne</div></div>
+</div>
+</div>
+<div style="margin-bottom:48px">
+<div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-solid fa-ranking-star" style="color:var(--green)"></i> Positionnement SERP obtenu — "polymérisation UV"</div>
+<div style="background:white;border:1px solid var(--border);border-radius:12px;padding:20px;max-width:580px">
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray);margin-bottom:14px"><i class="fa-brands fa-google"></i> Résultats pour <strong style="color:var(--black)">"polymérisation UV"</strong></div>
+<div style="background:var(--green-bg);border:1.5px solid var(--green);border-radius:8px;padding:14px;position:relative">
+<div style="position:absolute;top:-11px;right:12px;background:var(--green);color:white;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:700"><i class="fa-solid fa-trophy"></i> Résultat obtenu</div>
+<div style="font-size:11px;color:var(--green);font-weight:600;margin-bottom:3px"></div>
+<div style="font-size:14px;color:#1a0dab;font-weight:500">
+<img alt="Position SERP d'UWAVE pour le mot clé polymérisation UV" class="img-responsive" loading="lazy" src="position polymérisation UV.PNG" width="100%"/>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-brands fa-google" style="color:#ea4335"></i> Google Ads — Campagnes internationales (Mai–Août 2025)</div>
+<div class="ads-table">
+<div style="background:#f8f9fa;padding:10px 16px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px"><i class="fa-brands fa-google" style="color:#4285f4"></i> ads.google.com — Toutes les campagnes actives</div>
+<div class="ads-row head"><span>Campagne</span><span>Coût</span><span>Impressions</span><span>Clics</span></div>
+<div class="ads-row"><span><span class="dot-green"></span>UWAVE (IT)</span><span>130 €</span><span>154k</span><span style="color:var(--accent);font-weight:600">4 520</span></div>
+<div class="ads-row"><span><span class="dot-green"></span>UWAVE (DE)</span><span>187 €</span><span>313k</span><span style="color:var(--accent);font-weight:600">2 740</span></div>
+<div class="ads-row"><span><span class="dot-green"></span>UWAVE (ES)</span><span>143 €</span><span>210k</span><span style="color:var(--accent);font-weight:600">9 710</span></div>
+<div class="ads-row"><span><span class="dot-green"></span>UWAVE (EN)</span><span>1 050 €</span><span>259k</span><span style="color:var(--accent);font-weight:600">7 380</span></div>
+<div class="ads-row"><span><span class="dot-green"></span>UWAVE (FR)</span><span>832 €</span><span>635k</span><span style="color:var(--accent);font-weight:600">8 600</span></div>
+</div>
+</div>
+</section>
+<!-- CRÉATIONS -->
+<section id="creations">
+<div class="section-label"><i class="fa-solid fa-palette"></i> Créations de contenu</div>
+<h2 class="section-title">Contenus &amp; supports créés</h2>
+<p class="section-sub">Carousels LinkedIn, newsletters B2B, supports salon et documents print conçus pour UWAVE.</p>
+<div style="margin-bottom:44px">
+<div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-brands fa-linkedin" style="color:#0077b5"></i> Carousels LinkedIn — Stratégie de contenu B2B</div>
+<div class="carousel-grid">
+<div class="carousel-item">
+<div class="ci-header" style="background:var(--accent)"><i class="fa-solid fa-sun"></i> UV-A Rays (EN)</div>
+<div class="ci-slides">
+<div class="ci-slide">Qu'est-ce que l'UV-A ? Longueur d'onde 315–400nm, pénètre profondément dans la matière</div>
+<div class="ci-slide">Applications : durcissement adhésifs, fluorescence, photo-vieillissement industriel</div>
+<div class="ci-slide">UV-A LED de 365nm à 405nm — gamme complète UWAVE</div>
+<div class="ci-slide" style="background:var(--accent);color:white;font-weight:600;font-size:12px">Contact us — www.uwave-uv.com</div>
+</div>
+<div class="ci-footer"><i class="fa-solid fa-images fa-xs"></i> 5 slides · Anglais · Canva</div><div class="ci-actions"><a class="card-action primary" href="https://www.linkedin.com/posts/uwave---innovative-led-uv-curing-systems_uva-ultraviolet-innovation-activity-7290711606735306752-Ks7d?utm_source=share&utm_medium=member_desktop&rcm=ACoAACiXsA0BshCaJHwHFuYI1k11Dm7WM3Rz98c" target="_blank"><i class="fa-brands fa-linkedin"></i> Voir le post LinkedIn</a></div>
+</div>
+<div class="carousel-item">
+<div class="ci-header" style="background:#4a6fa5"><i class="fa-solid fa-radiation"></i> Rayons UV-B (FR)</div>
+<div class="ci-slides">
+<div class="ci-slide">UV-B : 280–315 nm, énergie photonique élevée, applications scientifiques et médicales</div>
+<div class="ci-slide">Synthèse vitamine D, traitement psoriasis, eczéma, photo-vieillissement matériaux</div>
+<div class="ci-slide">Applications industrielles : test de résistance polymères et peintures</div>
+<div class="ci-slide" style="background:#4a6fa5;color:white;font-weight:600;font-size:12px">Solutions UV-B sur mesure — UWAVE</div>
+</div>
+<div class="ci-footer"><i class="fa-solid fa-images fa-xs"></i> 6 slides · Français · Canva</div><div class="ci-actions"><a class="card-action primary" href="https://www.linkedin.com/posts/uwave---innovative-led-uv-curing-systems_uvb-ultraviolet-innovation-activity-7318573979965804545-11xY?utm_source=share&utm_medium=member_desktop&rcm=ACoAACiXsA0BshCaJHwHFuYI1k11Dm7WM3Rz98c" target="_blank"><i class="fa-brands fa-linkedin"></i> Voir le post LinkedIn</a></div>
+</div>
+<div class="carousel-item">
+<div class="ci-header" style="background:#7b4f7a"><i class="fa-solid fa-bacteria"></i> Rayons UV-C (FR)</div>
+<div class="ci-slides">
+<div class="ci-slide">UV-C : 200–280 nm, longueurs d'onde les plus courtes, fortement germicide</div>
+<div class="ci-slide">Désinfection air, eau et surfaces — santé, agroalimentaire, laboratoires</div>
+<div class="ci-slide">Systèmes UV-C LED personnalisés, compacts et précis UWAVE</div>
+<div class="ci-slide" style="background:#7b4f7a;color:white;font-weight:600;font-size:12px">Solutions sur mesure — uwave-uv.com</div>
+</div>
+<div class="ci-footer"><i class="fa-solid fa-images fa-xs"></i> 5 slides · Français · Canva</div><div class="ci-actions"><a class="card-action primary" href="https://www.linkedin.com/posts/uwave---innovative-led-uv-curing-systems_carrousel-uv-c-activity-7321128719526367232-FSh4?utm_source=share&utm_medium=member_desktop&rcm=ACoAACiXsA0BshCaJHwHFuYI1k11Dm7WM3Rz98c" target="_blank"><i class="fa-brands fa-linkedin"></i> Voir le post LinkedIn</a></div>
+</div>
+</div>
+</div>
+<div style="margin-bottom:44px">
+<div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-solid fa-envelope-open-text" style="color:var(--accent)"></i> Newsletters B2B — 19 envois (9 EN + 10 FR)</div>
+<div class="newsletter-grid">
+<div class="nl-card">
+<div class="nl-head">
+<div class="date"><i class="fa-solid fa-calendar fa-xs"></i> Juillet 2025</div>
+<h4>Discover Our UV Spot</h4>
+</div>
+<div class="nl-body">
+<p>Présentation complète de la gamme de systèmes UV spot UWAVE (UPEN, UTARGET, USPOT, UFIBER, USHARP). 
+Création d’une newsletter technique B2B en anglais.</p>
+<span class="nl-tag"><i class="fa-solid fa-flag-usa" style="font-size:9px"></i> Anglais</span>
+<span class="nl-tag">Lancement de gamme</span>
+<span class="nl-tag">Mailerlite</span>
+<span class="nl-tag">HTML email</span>
+</div><div class="nl-actions"><a class="card-action primary" href="https://dashboard.mailerlite.com/preview/1217811/emails/160722796887934220" target="_blank"><i class="fa-solid fa-envelope"></i> Voir la newsletter</a></div>
+</div>
+<div class="nl-card">
+<div class="nl-head">
+<div class="date"><i class="fa-solid fa-calendar fa-xs"></i> Avril 2025</div>
+<h4>UTARGET — Spot UV à intensité variable</h4>
+</div>
+<div class="nl-body">
+<p>Lancement du UTARGET manuel, spotlight UV haute performance (jusqu'à 2000 mW/cm²). Présentation technique, applications et kit complet. Rédaction en anglais avec visuels produit.</p>
+<span class="nl-tag"><i class="fa-solid fa-flag-usa" style="font-size:9px"></i> Français</span>
+<span class="nl-tag">Lancement produit</span>
+<span class="nl-tag">Canva + Mailerlite</span>
+</div><div class="nl-actions"><a class="card-action primary" href="https://dashboard.mailerlite.com/preview/1217811/emails/150741188315448833" target="_blank"><i class="fa-solid fa-envelope"></i> Voir la newsletter</a></div>
+</div>
+</div>
+<p style="font-size:12px;color:var(--gray);margin-top:10px"><i class="fa-solid fa-info-circle fa-xs"></i> Ces 2 newsletters illustrent le style éditorial. 17 autres newsletters ont été conçues et envoyées sur la même période.</p>
+</div>
+<div>
+    <div style="font-size:13px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px;color:var(--gray)"><i class="fa-solid fa-shop" style="color:#e67e22"></i> Salon Global Industrie Lyon 2025 — Supports &amp; coordination</div>
+    <div class="salon-layout">
+
+      <!-- COLONNE GAUCHE : photos du stand -->
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:8px">
+          <!-- Photo principale — remplacer src par ton URL ou chemin image -->
+          <div style="grid-column:1/-1;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#111827;display:flex;align-items:center;justify-content:center;">
+            <img alt="Stand UWAVE — Global Industrie Lyon 2025" id="photo-stand-main"
+              src="SALON_1.jpg"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,0.35);width:100%;height:100%;">
+              <i class="fa-solid fa-industry" style="font-size:36px"></i>
+              <span style="font-size:12px;text-align:center">Stand UWAVE · Global Industrie Lyon 2025<br><span style="font-size:10px;opacity:.6">Remplacer src par le chemin de ta photo</span></span>
+            </div>
+          </div>
+          <!-- Photo 2 -->
+          <div style="border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:#1e293b;display:flex;align-items:center;justify-content:center;">
+            <img alt="Stand UWAVE — vue 2" src="SALON_2.jpg"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);flex-direction:column;gap:5px;">
+              <i class="fa-solid fa-person-chalkboard" style="font-size:22px"></i>
+              <span style="font-size:10px">Photo 2</span>
+            </div>
+          </div>
+          <!-- Photo 3 -->
+          <div style="border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:#1e293b;display:flex;align-items:center;justify-content:center;">
+            <img alt="Stand UWAVE — vue 3" src="SALON_3.jpg"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);flex-direction:column;gap:5px;">
+              <i class="fa-solid fa-expand" style="font-size:22px"></i>
+              <span style="font-size:10px">Photo 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLONNE DROITE : description + documents avec boutons inline -->
+      <div>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:18px">Coordination logistique complète. Conception de tous les supports print et digital, comparaison de 4 fournisseurs d'impression, coordination des prestataires, livraison dans les délais.</p>
+
+        <!-- Kakémono -->
+        <div style="background:var(--lightgray);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <i class="fa-solid fa-scroll" style="font-size:17px;color:var(--accent);flex-shrink:0"></i>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:600;margin-bottom:1px">Kakémono 84×204 cm</div>
+            <div style="font-size:11px;color:var(--gray)">Roll-up événementiel · Identité visuelle UWAVE</div>
+          </div>
+          <a href="kakemono.pdf" target="_blank"
+             style="flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:var(--accent2);color:var(--accent);font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;">
+            <i class="fa-solid fa-file-pdf fa-xs"></i> PDF
+          </a>
+        </div>
+
+        <!-- Brochure -->
+        <div style="background:var(--lightgray);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <i class="fa-solid fa-book-open" style="font-size:17px;color:var(--accent);flex-shrink:0"></i>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:600;margin-bottom:1px">Brochure produits A4</div>
+            <div style="font-size:11px;color:var(--gray)">8 pages · UV Curing, Fluorescence, Disinfection</div>
+          </div>
+          <a href="brochure-produits.pdf" target="_blank"
+             style="flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:var(--accent2);color:var(--accent);font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;">
+            <i class="fa-solid fa-file-pdf fa-xs"></i> PDF
+          </a>
+        </div>
+
+        <!-- Cartes de visite -->
+        <div style="background:var(--lightgray);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <i class="fa-solid fa-id-card" style="font-size:17px;color:var(--accent);flex-shrink:0"></i>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:600;margin-bottom:1px">Cartes de visite</div>
+            <div style="font-size:11px;color:var(--gray)">Design double face · Charte graphique UWAVE</div>
+          </div>
+          <a href="cartes_de_visites.pdf" target="_blank"
+             style="flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:var(--accent2);color:var(--accent);font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;">
+            <i class="fa-solid fa-file-pdf fa-xs"></i> PDF
+          </a>
+        </div>
+
+        <!-- Cartes produits -->
+        <div style="background:var(--lightgray);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <i class="fa-solid fa-rectangle-list" style="font-size:17px;color:var(--accent);flex-shrink:0"></i>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:600;margin-bottom:1px">Cartes produits</div>
+            <div style="font-size:11px;color:var(--gray)">UTARGET, UPEN, USPOT, UFIBER, ULINE, UV-CHAMBER...</div>
+          </div>
+          <a href="cartes-produits.pdf" target="_blank"
+             style="flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:var(--accent2);color:var(--accent);font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;">
+            <i class="fa-solid fa-file-pdf fa-xs"></i> PDF
+          </a>
+        </div>
+
+        <!-- Comparaison fournisseurs -->
+        <div style="background:var(--lightgray);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <i class="fa-solid fa-scale-balanced" style="font-size:17px;color:var(--accent);flex-shrink:0"></i>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:600;margin-bottom:1px">Comparaison fournisseurs</div>
+            <div style="font-size:11px;color:var(--gray)">ooprint, printoclock, papeo, easyflyer</div>
+          </div>
+          <span style="flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:6px;background:var(--green-bg);color:var(--green);font-size:11px;font-weight:700;white-space:nowrap;">
+            <i class="fa-solid fa-check fa-xs"></i> Fait
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="section-label"><i class="fa-solid fa-wrench"></i> Expertise technique</div>
+  <h2 class="section-title">Compétences</h2>
+  <p class="section-sub">Compétences développées et prouvées sur des projets réels en environnement B2B international.</p>
+
+  <div class="skills-grid">
+    <div class="skill-block">
+      <h4><i class="fa-brands fa-google"></i> SEO & Contenu</h4>
+      <div class="skill-list">
+        <div class="skill-row"><span>Audit technique (Crawl)</span><div class="skill-bar-wrap"><div class="skill-bar g" style="width:92%"></div></div></div>
+        <div class="skill-row"><span>SEO International / Hreflang</span><div class="skill-bar-wrap"><div class="skill-bar g" style="width:88%"></div></div></div>
+        <div class="skill-row"><span>Recherche de mots-clés</span><div class="skill-bar-wrap"><div class="skill-bar g" style="width:85%"></div></div></div>
+        <div class="skill-row"><span>Rédaction web SEO</span><div class="skill-bar-wrap"><div class="skill-bar g" style="width:80%"></div></div></div>
+        <div class="skill-row"><span>Search Console / GA4</span><div class="skill-bar-wrap"><div class="skill-bar g" style="width:90%"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h4><i class="fa-solid fa-chart-line"></i> SEA & Acquisition</h4>
+      <div class="skill-list">
+        <div class="skill-row"><span>Google Ads Search</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-row"><span>Google Shopping</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+        <div class="skill-row"><span>Meta Ads</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+        <div class="skill-row"><span>Google Tag Manager</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+        <div class="skill-row"><span>Looker Studio</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h4><i class="fa-solid fa-envelope"></i> Emailing & CMS</h4>
+      <div class="skill-list">
+        <div class="skill-row"><span>Mailerlite / Klaviyo</span><div class="skill-bar-wrap"><div class="skill-bar t" style="width:80%"></div></div></div>
+        <div class="skill-row"><span>WordPress + YOAST</span><div class="skill-bar-wrap"><div class="skill-bar t" style="width:85%"></div></div></div>
+        <div class="skill-row"><span>Shopify</span><div class="skill-bar-wrap"><div class="skill-bar t" style="width:80%"></div></div></div>
+        <div class="skill-row"><span>HTML / CSS</span><div class="skill-bar-wrap"><div class="skill-bar t" style="width:72%"></div></div></div>
+        <div class="skill-row"><span>Canva / Adobe</span><div class="skill-bar-wrap"><div class="skill-bar t" style="width:88%"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tools-row">
+    <span class="tool-logo"><i class="fa-brands fa-google"></i> Semrush</span>
+    <span class="tool-logo"><i class="fa-solid fa-spider"></i> Screaming Frog</span>
+    <span class="tool-logo"><i class="fa-solid fa-binoculars"></i> Ahrefs</span>
+    <span class="tool-logo"><i class="fa-brands fa-google"></i> GA4 / GTM</span>
+    <span class="tool-logo"><i class="fa-solid fa-chart-pie"></i> Looker Studio</span>
+    <span class="tool-logo"><i class="fa-brands fa-wordpress"></i> WordPress / YOAST</span>
+    <span class="tool-logo"><i class="fa-brands fa-shopify"></i> Shopify</span>
+    <span class="tool-logo"><i class="fa-solid fa-envelope"></i> Mailerlite</span>
+    <span class="tool-logo"><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
+    <span class="tool-logo"><i class="fa-solid fa-palette"></i> Canva</span>
+    <span class="tool-logo"><i class="fa-brands fa-figma"></i> Adobe Illustrator</span>
+    <span class="tool-logo"><i class="fa-solid fa-robot"></i> IA Générative</span>
+    <span class="tool-logo"><i class="fa-solid fa-code"></i> HTML / CSS</span>
+    <span class="tool-logo"><i class="fa-solid fa-shield-halved"></i> RGPD (gtag.js)</span>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="section-label"><i class="fa-solid fa-briefcase"></i> Expérience & Formation</div>
+  <h2 class="section-title">Parcours professionnel</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div>
+      <div style="font-size:14px;font-weight:600;margin-bottom:22px;color:var(--gray);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-briefcase"></i> Expériences</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">09/2024 – 09/2025</div>
+          <div class="tl-content">
+            <h4>Responsable Webmarketing & Communication</h4>
+            <div class="co"><i class="fa-solid fa-building"></i> UWAVE · Alternance · Villebon-sur-Yvette</div>
+            <p>SEO international DE/ES/IT, restructuration Google Ads (-34% CPC), 19 newsletters B2B, formulaires HTML/CSS, stratégie LinkedIn, salon Global Industrie Lyon 2025.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">04/2024 – 09/2024</div>
+          <div class="tl-content">
+            <h4>Chargé de Webmarketing & Communication</h4>
+            <div class="co"><i class="fa-solid fa-building"></i> UWAVE · Stage · Villebon-sur-Yvette</div>
+            <p>Audit SEO (Health Score 77% → 98%), refonte arborescence, déploiement multilingue, newsletters Mailerlite, conformité RGPD.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot g"></div>
+          <div class="tl-date">11/2021 – 07/2022</div>
+          <div class="tl-content">
+            <h4>Technico-commercial</h4>
+            <div class="co" style="color:var(--gray)"><i class="fa-solid fa-building"></i> CMGP · Maroc</div>
+            <p>Prospection, négociation B2B, gestion portefeuille clients, CRM.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot g"></div>
+          <div class="tl-date">05/2021 – 11/2021</div>
+          <div class="tl-content">
+            <h4>Fondateur — E-commerce</h4>
+            <div class="co" style="color:var(--gray)"><i class="fa-brands fa-shopify"></i> VEIKKER · Marché UK</div>
+            <p>Boutique Shopify UK de A à Z. Google Shopping, Meta Ads, copywriting EN, logistique.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:14px;font-weight:600;margin-bottom:22px;color:var(--gray);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-graduation-cap"></i> Formation & certifications</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="background:var(--lightgray);border-radius:10px;padding:16px">
+          <div style="font-size:11px;color:var(--accent);font-weight:600;margin-bottom:4px">2024 – 2025 · INSEEC</div>
+          <div style="font-weight:600;font-size:14px;margin-bottom:2px">MSC Communication Digitale & Social Media</div>
+          <div style="font-size:12px;color:var(--gray)">Titre RNCP N°34577 — Niveau 7</div>
+        </div>
+        <div style="background:var(--lightgray);border-radius:10px;padding:16px">
+          <div style="font-size:11px;color:var(--accent);font-weight:600;margin-bottom:4px">2022 – 2024 · INCOM SUP</div>
+          <div style="font-weight:600;font-size:14px;margin-bottom:2px">MBA Marketing International & Transformation Digitale</div>
+          <div style="font-size:12px;color:var(--gray)">Titre RNCP N°35208 — Niveau 7</div>
+        </div>
+        <div style="background:var(--accent2);border-radius:10px;padding:16px">
+          <div style="font-size:12px;font-weight:600;color:var(--accent);margin-bottom:10px"><i class="fa-solid fa-certificate"></i> Certifications</div>
+          <div style="display:flex;flex-direction:column;gap:7px;font-size:13px">
+            <div style="display:flex;align-items:center;gap:8px"><i class="fa-brands fa-google" style="color:var(--accent)"></i> Google Atelier Digital — Fondamentaux du marketing numérique</div>
+            <div style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-circle-h" style="color:#ff7a59"></i> HubSpot Academy — Inbound Marketing & Hub Software</div>
+            <div style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-chart-bar" style="color:var(--teal)"></i> DataScientest — Visualizing & Analyzing Data with No-Code</div>
+            <div style="display:flex;align-items:center;gap:8px"><i class="fa-brands fa-wordpress" style="color:var(--accent)"></i> YOAST — WordPress & SEO for beginners</div>
+          </div>
+        </div>
+        <div style="background:var(--green-bg);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:12px">
+          <i class="fa-solid fa-award" style="color:var(--green);font-size:20px;flex-shrink:0;margin-top:2px"></i>
+          <div>
+            <div style="font-weight:600;font-size:13px;color:var(--green);margin-bottom:4px">Recommandation — Responsable Commercial, UWAVE</div>
+            <div style="font-size:12px;color:var(--gray);line-height:1.6">"Sérieux, réactivité et capacité à gérer des missions différentes et variées. Collaborateur agréable, motivé et efficace."</div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h3>Disponible pour un CDI en France</h3>
+  <p>Ouvert à toutes les offres en France métropolitaine</p>
+  <div class="footer-links">
+    <a href="mailto:abdelaliboulaayad@gmail.com"><i class="fa-solid fa-envelope"></i> abdelaliboulaayad@gmail.com</a>
+    <a href="tel:+33784777980"><i class="fa-solid fa-phone"></i> +33 7 84 77 79 80</a>
+    <a href="https://www.linkedin.com/in/abdelali-boulaayad-4650aa170/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span style="opacity:.4;display:flex;align-items:center;gap:6px"><i class="fa-solid fa-location-dot"></i> La Garenne-Colombes (92)</span>
+  </div>
+  <p style="margin-top:28px;font-size:12px;opacity:.3;">© 2026 Abdelali Boulaayad</p>
+</footer>
+
+
+
+<script>
+(function () {
+  // ── Scroll Reveal (base) ───────────────────────
+  const revealEls = document.querySelectorAll(
+    '.project-card, .skill-block, .nl-card, .carousel-item, .tl-item, .stat-item, .ba-box'
+  );
+  revealEls.forEach(el => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .section-label, .section-title, .section-sub, .slide-left, .slide-right').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ── Section-level slide (titles, labels) ──────
+  document.querySelectorAll('.section-title, .section-sub').forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.section-label').forEach(el => el.classList.add('reveal'));
+
+  // ── Skill-block visible (for top border) ─────
+  const sbObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        sbObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.skill-block').forEach(el => sbObserver.observe(el));
+
+  // ── Skill bars animate on scroll ─────────────
+  document.querySelectorAll('.skill-bar').forEach(bar => {
+    const w = bar.style.width;
+    bar.style.setProperty('--target-width', w);
+    bar.style.width = '0%';
+  });
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-bar').forEach((bar, i) => {
+          setTimeout(() => bar.classList.add('animated'), i * 80);
+        });
+        barObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.skills-grid').forEach(el => barObs.observe(el));
+
+  // ── Timeline line grow ────────────────────────
+  const tlObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        tlObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.timeline').forEach(el => tlObs.observe(el));
+
+  // ── Nav scroll effect ─────────────────────────
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── Animated counters on hero stats ──────────
+  function animateCounter(el, duration) {
+    const text = el.textContent.trim();
+    const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+    if (isNaN(num)) return;
+    const suffix = text.replace(/[0-9.]/g, '');
+    const prefix = text.match(/^[^0-9]*/)[0];
+    const start = performance.now();
+    (function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      const v = e * num;
+      el.textContent = prefix + (num % 1 === 0 ? Math.round(v) : v.toFixed(1)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + num + suffix;
+    })(start);
+  }
+  const statsObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.val').forEach(v => animateCounter(v, 1400));
+        statsObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.hero-stats').forEach(el => statsObs.observe(el));
+
+  // ── Stagger project cards ─────────────────────
+  document.querySelectorAll('.projects-grid .project-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.08) + 's';
+  });
+
+  // ── Particle canvas in hero ───────────────────
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.3;';
+    hero.insertBefore(canvas, hero.firstChild);
+    const ctx = canvas.getContext('2d');
+    let pts = [];
+    function resize() { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    for (let i = 0; i < 24; i++) pts.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 0.5, dx: (Math.random() - 0.5) * 0.3, dy: (Math.random() - 0.5) * 0.3,
+      a: Math.random() * 0.5 + 0.1
+    });
+    (function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pts.forEach(p => {
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(32,94,97,' + p.a + ')'; ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      pts.forEach((p, i) => pts.slice(i + 1).forEach(q => {
+        const d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(32,94,97,' + (0.07 * (1 - d / 100)) + ')';
+          ctx.lineWidth = 0.7; ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }));
+      requestAnimationFrame(draw);
+    })();
+  }
+
+  // ── 3D Tilt on project cards ──────────────────
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(700px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // ── Magnetic effect on hero buttons ──────────
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * 0.3;
+      const y = (e.clientY - r.top - r.height / 2) * 0.3;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+  // ── Typewriter on hero subtitle ───────────────
+  const tagline = document.querySelector('.hero-text > p');
+  if (tagline) {
+    const fullText = tagline.textContent;
+    tagline.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'typewriter-cursor';
+    tagline.appendChild(cursor);
+    let i = 0;
+    const speed = 22;
+    function type() {
+      if (i <= fullText.length) {
+        tagline.textContent = fullText.slice(0, i);
+        tagline.appendChild(cursor);
+        i++;
+        setTimeout(type, speed);
+      }
+    }
+    setTimeout(type, 600);
+  }
+
+  // ── Nav active link ───────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 90) current = sec.id; });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? '#7ecacb' : '';
+    });
+  }, { passive: true });
+
+  // ── Smooth pill hover with scale ─────────────
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('mouseenter', () => pill.style.transform = 'scale(1.06)');
+    pill.addEventListener('mouseleave', () => pill.style.transform = '');
+  });
+
+  // ── Number count-up on BA boxes ──────────────
+  const baObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const val = entry.target.querySelector('.ba-val');
+        if (val) animateCounter(val, 1000);
+        baObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.ba-box').forEach(el => baObs.observe(el));
+
+})();
+</script>
+
+
+</body>
+</html>
