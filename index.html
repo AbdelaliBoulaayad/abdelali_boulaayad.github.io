@@ -158,16 +158,138 @@
   .reco-link { text-decoration:none; color:inherit; display:block; }
   .reco-link:hover { opacity: .95; transform: translateY(-1px); }
 
+  /* ── Hamburger button ─────────────────────── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── Mobile nav drawer ───────────────────── */
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0; right: 0;
+    background: linear-gradient(160deg, #0f1c1d 0%, #1a3536 100%);
+    z-index: 99;
+    padding: 20px 24px 28px;
+    border-bottom: 1px solid rgba(32,94,97,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .nav-drawer.open { display: flex; flex-direction: column; gap: 4px; }
+  .nav-drawer a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 11px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color .2s;
+  }
+  .nav-drawer a:last-child { border-bottom: none; }
+  .nav-drawer a:hover { color: #7ecacb; }
+
   @media(max-width:768px){
+    /* Nav */
     nav { padding: 0 16px; }
     nav ul { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 40px 20px; }
-    .hero-text h1 { font-size: 36px; }
-    .projects-grid,.carousel-grid,.newsletter-grid,.skills-grid,.salon-layout { grid-template-columns: 1fr; }
+    .nav-hamburger { display: flex; }
+
+    /* Hero */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 36px 20px 48px;
+      gap: 36px;
+      margin-top: 60px;
+    }
+    .hero-text h1 { font-size: 34px; }
+    .hero-text p { font-size: 15px; max-width: 100%; }
+    .hero-stats { grid-template-columns: 1fr 1fr; padding: 22px 16px; gap: 14px; }
+    .stat-item .val { font-size: 28px; }
+
+    /* Grids → single column */
+    .projects-grid,
+    .carousel-grid,
+    .newsletter-grid,
+    .skills-grid,
+    .salon-layout { grid-template-columns: 1fr; }
     .project-card.featured { grid-template-columns: 1fr; }
-    .ba-wrap { grid-template-columns: 1fr; }
+
+    /* Before/After */
+    .ba-wrap { grid-template-columns: 1fr; gap: 10px; }
     .ba-arrow { display: none; }
-    section { padding: 50px 20px; }
+    .ba-val { font-size: 24px; }
+
+    /* Sections */
+    section { padding: 44px 18px; }
+    .section-title { font-size: 28px; }
+
+    /* Timeline — remove fixed min-width on date */
+    .tl-date { min-width: unset; width: 90px; font-size: 10px; }
+    .tl-item { gap: 16px; padding-left: 36px; }
+
+    /* Ads table — make scrollable */
+    .ads-table { overflow-x: auto; }
+    .ads-row { font-size: 11px; padding: 9px 10px; }
+
+    /* CTA buttons */
+    .cta-btn { font-size: 1rem; padding: 13px 20px; min-width: 160px; }
+    .buttons-container { gap: 12px; }
+
+    /* Project visual height */
+    .project-visual { height: 160px; }
+    .project-card.featured .project-visual { min-height: 180px; }
+
+    /* Footer */
+    footer { padding: 40px 20px; }
+    footer h3 { font-size: 22px; }
+    .footer-links { gap: 16px; }
+
+    /* Carousel items */
+    .ci-slides { grid-template-columns: 1fr; }
+
+    /* Hero contact buttons */
+    .hero-contact { flex-direction: column; gap: 10px; }
+    .btn { width: 100%; justify-content: center; }
+
+    /* Card actions */
+    .card-actions { flex-direction: column; }
+    .card-action { width: 100%; justify-content: center; }
+
+    /* Newsletter actions */
+    .nl-actions { flex-direction: column; }
+  }
+
+  @media(max-width:480px){
+    .hero-text h1 { font-size: 28px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .stat-item .val { font-size: 24px; }
+    .section-title { font-size: 24px; }
+    .pv-kpis { gap: 12px; }
+    .pv-val { font-size: 18px; }
   }
   /* === NOUVEAUX STYLES POUR LES BOUTONS ALIGNÉS === */
         .buttons-container {
@@ -609,12 +731,24 @@
 <li><a href="V5_CV_ABDELALI_BOULAAYAD_Marketing_Digital.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf fa-xs"></i> CV</a></li>
 <li><a href="#contact"><i class="fa-solid fa-envelope fa-xs"></i> Contact</a></li>
 </ul>
+<button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
 </nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="#projets" class="drawer-link"><i class="fa-solid fa-folder-open fa-xs"></i> Projets</a>
+  <a href="#preuves" class="drawer-link"><i class="fa-solid fa-chart-line fa-xs"></i> Preuves</a>
+  <a href="#creations" class="drawer-link"><i class="fa-solid fa-palette fa-xs"></i> Créations</a>
+  <a href="#competences" class="drawer-link"><i class="fa-solid fa-wrench fa-xs"></i> Compétences</a>
+  <a href="#parcours" class="drawer-link"><i class="fa-solid fa-briefcase fa-xs"></i> Parcours</a>
+  <a href="V5_CV_ABDELALI_BOULAAYAD_Marketing_Digital.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf fa-xs"></i> CV</a>
+  <a href="#contact" class="drawer-link"><i class="fa-solid fa-envelope fa-xs"></i> Contact</a>
+</div>
 <div style="max-width:1100px;margin:0 auto;">
 <div class="hero">
 <div class="hero-text">
 <h1>Abdelali<br/><span>Boulaayad</span></h1>
-<p>Responsable Marketing Digital &amp; Communication. Je transforme les données en leviers de croissance, SEO international, SEA, emailing, création de contenus et gestion de projets webmarketing en environnement B2B industriel.</p>
+<p>Responsable Marketing Digital &amp; Communication. Je transforme les données en leviers de croissance, SEO international, SEA, emailing, création de contenus et gestion de projets webmarketing en environnement B2B et B2C.</p>
 <div class="hero-tags">
 <span class="tag"><i class="fa-brands fa-google fa-xs"></i> SEO / SEA</span>
 <span class="tag"><i class="fa-solid fa-chart-bar fa-xs"></i> Google Ads</span>
@@ -1389,6 +1523,25 @@ Création d’une newsletter technique B2B en anglais.</p>
     });
   }, { threshold: 0.6 });
   document.querySelectorAll('.ba-box').forEach(el => baObs.observe(el));
+
+  // ── Hamburger menu ────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const navDrawer = document.getElementById('navDrawer');
+  if (hamburger && navDrawer) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    // Close drawer when a link is tapped
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
 })();
 </script>
